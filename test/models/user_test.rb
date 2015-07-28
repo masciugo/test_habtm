@@ -22,4 +22,9 @@ class UserTest < ActiveSupport::TestCase
     proj.save
     assert_equal 1, john.projects.count
   end
+  test "assign habtm by params" do
+    paul = User.new(name: 'paul', project_ids: Project.ids)
+    paul.save
+    assert_equal 2, john.projects.count
+  end
 end
